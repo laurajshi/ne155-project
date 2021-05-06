@@ -5,7 +5,9 @@
 ### How to execute the code
 
 ### Status of the code
-- operational/ doesn't run/ doesn't compile/ bugs
+- creation of averaged out matrices with edge/ corner cases works fully
+- right now, population of A matrix for inner points needs to be tweaked
+- also need to add information about boundary conditions
 
 ### System parameters and behavior:
 - expected input, resulting output, limitations/ restrictions
