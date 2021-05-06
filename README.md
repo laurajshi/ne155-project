@@ -1,13 +1,13 @@
 ### How to compile the code: 
-- ideally will be done in Python so now compilation needed or written in Java and compiled with javac/ IntelliJ IDE
+- Ideally will be done in Python so now compilation needed or written in Java and compiled with javac/ IntelliJ IDE
 
 
 ### How to execute the code
 
 ### Status of the code
-- creation of averaged out matrices with edge/ corner cases works fully
-- right now, population of A matrix for inner points needs to be tweaked
-- also need to add information about boundary conditions
+- Creation of averaged out matrices with edge/ corner cases works fully
+- Right now, population of A matrix for inner points needs to be tweaked
+- Also need to add information about boundary conditions
 
 ### System parameters and behavior:
 - expected input, resulting output, limitations/ restrictions
