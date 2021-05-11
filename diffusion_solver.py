@@ -21,7 +21,7 @@ def getGridSpacing(n, m, x_first=1, y_first=1, x_spacing_alt=1, y_spacing_alt=1)
     eps[1::2] = eps[1::2]*y_spacing_alt
     return eps, delta
 
-def getMatrices(n, m, D_default, Sigma_def, Source_def, splitval, diff_fact):
+def getMatrices(n, m, D_def, Sigma_def, Source_def, splitval, diff_fact):
     D = np.ones((n-1, m-1))*D_def #diffusion coeffient grid, initialize all to 10
     D[:, :splitval] = D[:, :splitval]*diff_fact #left regime
 
