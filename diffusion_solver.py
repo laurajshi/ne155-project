@@ -10,8 +10,6 @@ plt.style.use('fivethirtyeight')
 plt.rcParams['figure.figsize'] = (12, 9)
 plt.rcParams['font.size'] = 16
 
-def tester():
-    print('hello world')
     
 def getGridSpacing(n, m, x_first=1, y_first=1, x_spacing_alt=1, y_spacing_alt=1):
     # Spacing can alternate between the first value and first*spacing_alt

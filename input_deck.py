@@ -6,16 +6,21 @@ import numpy as np
 # These are the number of edge points on which we will have the flux values
 n = 20 #number of rows
 m = 20 #number of columns
+sourcetype = 'divided'
+
 
 # Spacing can alternate between the first value and first*spacing_alt
 x_first, y_first = 1, 1
 x_spacing_alt, y_spacing_alt = 1, 1 #when set to 1, all spacing is uniform
 
-D_default = 10; Sigma_def = 100; Source_def = 50
+D_default = 10; Sigma_def = 100; Source_def = 10
 
-
+### getters and setters
 def getSysDims():
     return m, n
+
+def getSourceType():
+    return sourcetype
 
 def getSpacingArrays(check=True):
     if (check):
@@ -31,15 +36,32 @@ def getSpacingArrays(check=True):
     return delta, eps
 
 def getMatricesFromInput(show=True, check=True):
+    sourceT = sourcetype
     if (check):
-        if (D_default > 1 and Sigma_def > 1 and Source_def > 1):
-            print('all material inputs are valid, proceeding.')
-        else:
-            print('material inputs are not valid, terminating. check to make sure all inputs are positive')
+        if not(D_default > 1 and Sigma_def > 1 and Source_def > 1):
+            print('material inputs are not valid, terminating. check to make sure all inputs are positive.')
             return
-    Dc = createDividedMatrix(n, m, D_default, division = 2, vert= False)
-    Sigma_a = createDividedMatrix(n, m, Sigma_def)
-    Source = createPointMatrix(n, m, Source_def)
+        if not(sourcetype in ['point', 'line', 'corner', 'divided']):
+            print('source type is invalid, should be a point, line, corner, or divided')
+            print('will default to a point source')
+            sourceT = 'point'
+        else:
+            print('all inputs are valid, proceeding')
+            
+    Dc = createDividedMatrix(n, m, D_default, division = 2, vert= True) #False
+    Sigma_a = createDividedMatrix(n, m, Sigma_def,  division = 2, vert= True)
+    
+    if (sourceT=='point'):
+        Source = createPointMatrix(n, m, Source_def)
+
+    if (sourceT == 'line'):
+        Source = createLineMatrix(n, m, Source_def)
+
+    if (sourceT == 'divided'):
+        Source = createDividedMatrix(n, m, Source_def)
+
+    if (sourceT == 'corner'):
+        Source = createCornerMatrix(n, m, Source_def)
     if (show):
         visualize_sys_orig(Dc, Sigma_a, Source)
     print('Displaying input values as graphs, please verify')

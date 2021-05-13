@@ -18,12 +18,20 @@ def createDividedMatrix(n, m, def_val, division = 2 , dF = 2, vert = True):
     else:
         output[:sV, :] = output[:sV, :]*dF
     return output
-def createLineMatrix():
-    return 0
 
-def createPointMatrix(n, m, def_val): #add in functionality for center and corner
+def createLineMatrix(n, m, def_val):
+    output = np.ones((n-1, m-1))
+    output[:, int((m-1)/2)] = def_val
+    return output
+
+def createPointMatrix(n, m, def_val):
     output = np.ones((n-1, m-1))
     output[int((n-1)/2), int((m-1)/2)] = def_val
+    return output
+
+def createCornerMatrix(n, m, def_val):
+    output = np.ones((n-1, m-1))
+    output[n-2, m-2] = def_val
     return output
 
 ### methods to average out the matrix
