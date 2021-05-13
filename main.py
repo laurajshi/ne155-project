@@ -1,5 +1,5 @@
 # Main module for diffusion solver project
-# Version 2.0
+# Version 2.1
 from datetime import datetime
 from input_deck import *
 from de_methods import *
@@ -50,4 +50,4 @@ with open('output.txt', 'a') as file:
     file.write('Flux Output:\n')
     np.savetxt(file, flux_array, fmt='%1.2e')
 file.close()
-print('diffusion equation 2.0 terminated, author = laurashi at:', datetime.now())
+print('diffusion equation 2.1 with %s source terminated, author = laurashi at:' %sourcetype, datetime.now())

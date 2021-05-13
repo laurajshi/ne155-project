@@ -3,16 +3,16 @@
 from de_methods import *
 import numpy as np
 
-# These are the number of edge points on which we will have the flux values
+# System Parameters: these are the number of edge points on which we will have the flux values
 n = 20 #number of rows
 m = 20 #number of columns
-sourcetype = 'point'
-
 
 # Spacing can alternate between the first value and first*spacing_alt
 x_first, y_first = 1, 1
 x_spacing_alt, y_spacing_alt = 1, 1 #when set to 1, all spacing is uniform
 
+# Material & Source properties
+sourcetype = 'point'
 D_default = 10; Sigma_def = 100; Source_def = 10
 
 ### getters and setters
