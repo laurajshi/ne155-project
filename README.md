@@ -1,3 +1,5 @@
+## 2-dimensional Diffusion Equation Solver w/ the Finite Volume Method
+
 ### How to compile the code: 
 - Code is in written Python and no compilation is necessary
 
