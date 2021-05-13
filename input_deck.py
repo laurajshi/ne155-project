@@ -6,7 +6,7 @@ import numpy as np
 # These are the number of edge points on which we will have the flux values
 n = 20 #number of rows
 m = 20 #number of columns
-sourcetype = 'divided'
+sourcetype = 'point'
 
 
 # Spacing can alternate between the first value and first*spacing_alt
